@@ -678,52 +678,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
     <script>
-        // Handle contact form submission
-        function handleContactForm(event) {
-            event.preventDefault();
-            
-            const name = document.getElementById('contactName').value;
-            const email = document.getElementById('contactEmail').value;
-            const subject = document.getElementById('contactSubject').value;
-            const message = document.getElementById('contactMessage').value;
-            const submitBtn = document.getElementById('submitBtn');
-            
-            // Disable button during submission
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
-            
-            // Send via mailto as fallback
-            const mailtoLink = `mailto:sampo.javaja@gmail.com?subject=${encodeURIComponent(subject || 'Contact Form')}&body=${encodeURIComponent(`From: ${name}\nEmail: ${email}\n\n${message}`)}`;
-            
-            // Try to send via fetch API to a backend (if available)
-            fetch('https://formspree.io/f/xyzgvqbb', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    name: name,
-                    email: email,
-                    subject: subject,
-                    message: message
-                })
-            }).then(response => {
-                if (response.ok) {
-                    alert('✓ Message sent successfully! Thank you for reaching out.');
-                    document.getElementById('contactForm').reset();
-                } else {
-                    // Fallback: open mailto
-                    window.location.href = mailtoLink;
-                }
-            }).catch(error => {
-                // Fallback: open mailto if fetch fails
-                window.location.href = mailtoLink;
-            }).finally(() => {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Send Message';
-            });
-        }
-
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
