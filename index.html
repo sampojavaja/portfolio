@@ -636,18 +636,18 @@
             
             <div class="contact-wrapper">
                 <div class="contact-form-container">
-                    <form class="contact-form" id="contactForm">
+                    <form class="contact-form" id="contactForm" method="POST" action="https://formspree.io/f/maqolzan">
                         <div class="form-group">
-                            <input type="text" id="userName" placeholder="Your Name" required>
+                            <input type="text" name="name" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" id="userEmail" placeholder="Your Email" required>
+                            <input type="email" name="email" placeholder="Your Email" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="userSubject" placeholder="Subject">
+                            <input type="text" name="subject" placeholder="Subject">
                         </div>
                         <div class="form-group">
-                            <textarea id="userMessage" placeholder="Your Message" rows="6" required></textarea>
+                            <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
                         </div>
                         <button type="submit" class="cta-button">Send Message</button>
                     </form>
@@ -678,31 +678,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
     <script>
-        // Contact form with mailto fallback
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('userName').value;
-            const email = document.getElementById('userEmail').value;
-            const subject = document.getElementById('userSubject').value || 'Portfolio Contact';
-            const message = document.getElementById('userMessage').value;
-            
-            // Create mailto link
-            const mailtoBody = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
-            const mailtoLink = `mailto:sampo.javaja@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(mailtoBody)}`;
-            
-            // Open email client
-            window.location.href = mailtoLink;
-            
-            // Show feedback
-            alert('✓ Opening your email client with the message...');
-            
-            // Reset form
-            setTimeout(() => {
-                document.getElementById('contactForm').reset();
-            }, 500);
-        });
-
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
