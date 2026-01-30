@@ -207,10 +207,24 @@
             background: linear-gradient(180deg, #1a1a1a 0%, #242424 100%);
         }
 
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
+        .projects-cta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem 0;
+        }
+
+        .projects-cta .cta-button {
+            padding: 1rem 2.4rem;
+            font-size: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.12);
+            transition: all 0.3s ease;
+        }
+
+        .projects-cta .cta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 45px rgba(102, 126, 234, 0.18);
         }
 
         .project-card {
@@ -581,49 +595,9 @@
     <section id="projects" class="projects">
         <div class="container">
             <h2>Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">🤖</div>
-                    <div class="project-content">
-                        <h3>Robo projekti</h3>
-                        <p>A innovative robotics project showcasing advanced automation and control systems.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Robotics</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Hardware</span>
-                        </div>
-                        <a href="projects.html" class="cta-button" style="font-size: 0.9rem; padding: 0.5rem 1rem;">View Project</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">📱</div>
-                    <div class="project-content">
-                        <h3>Mobile App</h3>
-                        <p>A responsive mobile application for task management with real-time synchronization.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Vue.js</span>
-                            <span class="tech-tag">Firebase</span>
-                            <span class="tech-tag">PWA</span>
-                        </div>
-                        <a href="#" class="cta-button" style="font-size: 0.9rem; padding: 0.5rem 1rem;">View Project</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">🔧</div>
-                    <div class="project-content">
-                        <h3>API Service</h3>
-                        <p>RESTful API for data management with comprehensive documentation and authentication.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Flask</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                        </div>
-                        <a href="#" class="cta-button" style="font-size: 0.9rem; padding: 0.5rem 1rem;">View Project</a>
-                    </div>
-                </div>
-            </div>
+            <div class="projects-cta">
+                <a href="projects.html" class="cta-button" style="font-size:1.05rem; padding:0.95rem 2.2rem;">See All Projects</a>
+            </div> 
         </div>
     </section>
 
