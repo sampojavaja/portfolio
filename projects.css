@@ -311,10 +311,16 @@ body.light .project-btn.secondary {
 }
 
 /* Light theme navigation overrides */
-body.light nav a { color: #111827; }
-body.light nav a:hover { color: #1f2937; }
-body.light nav a::after { background: #111827; }
+body.light header nav a { color: #111827; }
+body.light header nav a:hover { color: #1f2937; }
+body.light header nav a::after { background: #111827; }
+body.light header nav a:visited { color: #111827; }
+body.light header nav a:active { color: #0f172a; }
 body.light .logo { color: #111827; }
+
+/* Ensure nav-actions and buttons are contrasted in light mode */
+body.light .nav-actions a, body.light .nav-buttons button { color: #111827; border-color: rgba(17,24,39,0.06); }
+body.light .nav-buttons button { background: transparent; }
 
 footer {
     background: #0a0a0a;
