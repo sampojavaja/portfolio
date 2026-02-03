@@ -35,6 +35,20 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* Ensure nav elements align correctly on narrow screens */
+        nav ul { display:flex; gap:1.5rem; align-items:center; }
+        .nav-actions { margin-left: auto; display:flex; gap:0.6rem; align-items:center; }
+
+        @media (max-width: 600px) {
+            nav { padding: 0 1rem; }
+            nav ul { display:none; }
+            .nav-actions { width:100%; justify-content:flex-end; }
+            .nav-buttons { gap:0.4rem; }
+            #lang-toggle, #theme-toggle { font-size:0.9rem; padding:0.4rem 0.6rem; }
         }
 
         .logo {
