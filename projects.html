@@ -41,9 +41,10 @@
 
         /* Ensure nav elements align correctly on narrow screens */
         nav ul { display:flex; gap:1.5rem; align-items:center; }
-        .nav-actions { margin-left: auto; display:flex; gap:0.6rem; align-items:center; }
+        .nav-actions { margin-left: auto; display:flex; gap:0.6rem; align-items:center; flex: 0 0 auto; }
+        .nav-actions a, .nav-actions button { white-space: nowrap; }
 
-        @media (max-width: 600px) {
+        @media (max-width: 900px) {
             nav { padding: 0 1rem; }
             nav ul { display:none; }
             .nav-actions { width:100%; justify-content:flex-end; }
@@ -123,7 +124,16 @@
             border: 1px solid rgba(90, 103, 216, 0.1);
             cursor: pointer;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            min-height: 420px;
         }
+
+        .project-content { flex: 1; display:flex; flex-direction:column; justify-content:space-between; }
+
+        .project-content p { margin-bottom: 1rem; }
+
+        .project-links { margin-top: 1rem; display:flex; gap:1rem; }
 
         .project-card:hover {
             transform: translateY(-15px) scale(1.03);
