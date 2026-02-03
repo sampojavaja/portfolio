@@ -551,9 +551,40 @@
             color: #3b82f6;
         }
 
-        footer {
-            background: #1a1a1a;
-            color: white;
+        /* Additional light-theme overrides to cover remaining elements */
+        body.light nav a { color: #111827; }
+        body.light nav a::after { background: #111827; }
+        body.light .logo { color: #111827; }
+
+        body.light .about-text h3 { color: #111827; }
+        body.light .about-text p { color: #374151; }
+        body.light .skill-list li { color: #374151; }
+
+        body.light .contact {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            color: #111827;
+            padding: 6rem 2rem;
+        }
+
+        body.light .contact h2 { color: #111827; }
+        body.light .contact p, body.light .contact-intro { color: #374151; }
+
+        body.light .contact-form-container {
+            background: rgba(255,255,255,0.85);
+            border-color: rgba(17,24,39,0.06);
+            backdrop-filter: none;
+        }
+
+        body.light .contact-form input,
+        body.light .contact-form textarea {
+            background: #ffffff;
+            color: #111827;
+            border: 1px solid rgba(17,24,39,0.08);
+        }
+
+        body.light footer {
+            background: #f3f4f6;
+            color: #111827;
             text-align: center;
             padding: 2.5rem;
             font-weight: 500;
