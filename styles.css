@@ -245,3 +245,191 @@ h2 {
     font-size: 3rem;
 }
 
+/* Theme toggle & light theme overrides */
+        .nav-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        #theme-toggle {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.08);
+            color: inherit;
+            padding: 0.45rem 0.7rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        #theme-toggle:focus {
+            outline: 2px solid #5a67d8;
+            outline-offset: 2px;
+        }
+
+        /* Light theme overrides */
+        body.light {
+            background: #f7fafc;
+            color: #111827;
+        }
+
+        body.light header {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            color: #111827;
+            box-shadow: 0 4px 20px rgba(17,24,39,0.05);
+        }
+
+        body.light .hero {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
+            color: #111827;
+        }
+
+        body.light .about {
+            background: linear-gradient(180deg, #ffffff 0%, #f7fafc 100%);
+        }
+
+        body.light .skill-category {
+            background: #ffffff;
+            box-shadow: 0 8px 24px rgba(17,24,39,0.04);
+            border: 1px solid rgba(17,24,39,0.04);
+        }
+
+        body.light .project-card {
+            background: #ffffff;
+            box-shadow: 0 8px 30px rgba(17,24,39,0.06);
+            border: 1px solid rgba(17,24,39,0.06);
+        }
+
+        body.light .project-image {
+            background: linear-gradient(135deg, #eef2ff 0%, #f0f9ff 100%);
+            color: #1f2937;
+        }
+
+        body.light .project-content h3 {
+            color: #3b82f6;
+        }
+
+        body.light .project-content p {
+            color: #374151;
+        }
+
+        body.light .tech-tag {
+            background: linear-gradient(135deg, rgba(59,130,246,0.08) 0%, rgba(99,102,241,0.04) 100%);
+            color: #3b82f6;
+            border-color: rgba(59,130,246,0.12);
+        }
+
+        /* Ensure projects section background becomes light */
+        body.light .projects {
+            background: linear-gradient(180deg, #ffffff 0%, #f7fafc 100%);
+        }
+
+        body.light .projects-cta { background: transparent; }
+        body.light h2 { color: #1f2937; }
+        body.light .projects-cta .cta-button { box-shadow: 0 8px 30px rgba(59,130,246,0.08); }
+
+        /* Ensure contact grid background and inner elements switch */
+        body.light .contact-wrapper { background: transparent; }
+        body.light .contact-item h3 { color: #111827; }
+        body.light .contact-item a { color: #2563eb; }
+
+        body.light .cta-button {
+            background: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+
+        body.light .cta-button:hover {
+            background: transparent;
+            color: #3b82f6;
+        }
+
+        /* Additional light-theme overrides to cover remaining elements */
+        body.light nav a { color: #111827; }
+        body.light nav a::after { background: #111827; }
+        body.light .logo { color: #111827; }
+
+        body.light .about-text h3 { color: #111827; }
+        body.light .about-text p { color: #374151; }
+        body.light .skill-list li { color: #374151; }
+
+        body.light .contact {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            color: #111827;
+            padding: 6rem 2rem;
+        }
+
+        body.light .contact h2 { color: #111827; }
+        body.light .contact p, body.light .contact-intro { color: #374151; }
+
+        body.light .contact-form-container {
+            background: rgba(255,255,255,0.85);
+            border-color: rgba(17,24,39,0.06);
+            backdrop-filter: none;
+        }
+
+        body.light .contact-form input,
+        body.light .contact-form textarea {
+            background: #ffffff;
+            color: #111827;
+            border: 1px solid rgba(17,24,39,0.08);
+        }
+
+        body.light footer {
+            background: #f3f4f6;
+            color: #111827;
+            text-align: center;
+            padding: 2.5rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero {
+                padding: 6rem 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .contact-info {
+                gap: 2rem;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
