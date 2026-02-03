@@ -310,6 +310,12 @@ body.light .project-btn.secondary {
     color: #3b82f6;
 }
 
+/* Light theme navigation overrides */
+body.light nav a { color: #111827; }
+body.light nav a:hover { color: #1f2937; }
+body.light nav a::after { background: #111827; }
+body.light .logo { color: #111827; }
+
 footer {
     background: #0a0a0a;
     color: white;
