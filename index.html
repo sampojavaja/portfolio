@@ -540,6 +540,20 @@
             border-color: rgba(59,130,246,0.12);
         }
 
+        /* Ensure projects section background becomes light */
+        body.light .projects {
+            background: linear-gradient(180deg, #ffffff 0%, #f7fafc 100%);
+        }
+
+        body.light .projects-cta { background: transparent; }
+        body.light h2 { color: #1f2937; }
+        body.light .projects-cta .cta-button { box-shadow: 0 8px 30px rgba(59,130,246,0.08); }
+
+        /* Ensure contact grid background and inner elements switch */
+        body.light .contact-wrapper { background: transparent; }
+        body.light .contact-item h3 { color: #111827; }
+        body.light .contact-item a { color: #2563eb; }
+
         body.light .cta-button {
             background: #3b82f6;
             color: white;
