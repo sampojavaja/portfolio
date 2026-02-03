@@ -206,17 +206,26 @@
             align-items: center;
         }
 
-        #theme-toggle {
+        .nav-buttons {
+            display:flex;
+            gap:0.6rem;
+            align-items:center;
+        }
+
+        #lang-toggle, #theme-toggle {
             background: transparent;
             border: 1px solid rgba(255,255,255,0.08);
             color: inherit;
-            padding: 0.5rem 0.7rem;
+            padding: 0.45rem 0.7rem;
             border-radius: 8px;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 0.95rem;
+            min-width: 44px;
+            text-transform: uppercase;
+            font-weight: 600;
         }
 
-        #theme-toggle:focus {
+        #lang-toggle:focus, #theme-toggle:focus {
             outline: 2px solid #5a67d8;
             outline-offset: 2px;
         }
@@ -384,12 +393,10 @@
             <div class="logo">Portfolio</div>
             <div class="nav-actions">
                 <a href="index.html">← Back to Home</a>
-                <button id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">☀️</button>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Page Header -->
+                <div class="nav-buttons">
+                    <button id="lang-toggle" aria-label="Switch language" title="Switch language">FI</button>
+                    <button id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">☀️</button>
+                </div>
     <section class="page-header">
         <h1>Featured Projects</h1>
         <p>Explore my latest work and projects</p>
@@ -399,7 +406,7 @@
     <section class="projects-section">
         <div class="projects-grid">
             <!-- Project 1 -->
-            <div class="project-card">
+            <div class="project-card" data-key="robo">
                 <div class="project-image">
                     🤖
                 </div>
@@ -419,12 +426,12 @@
             </div>
 
             <!-- Project 2 -->
-            <div class="project-card">
+            <div class="project-card" data-key="car">
                 <div class="project-image">
-                    <img src="Snapchat-1328946423.jpg" alt="Mobile App Icon">
+                    <img src="Snapchat-1328946423.jpg" alt="Car Restoration">
                 </div>
                 <div class="project-content">
-                    <h3>Car resturation</h3>
+                    <h3>Car Restoration</h3>
                     <p>A classic Saab 900 restoration project showcasing attention to detail and preservation of original features.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">Angle grinder</span>
@@ -441,7 +448,7 @@
             
 
             <!-- Project 4 -->
-            <div class="project-card">
+            <div class="project-card" data-key="web">
                 <div class="project-image">
                     🌐
                 </div>
@@ -461,7 +468,7 @@
             </div>
 
             <!-- Project 5 -->
-            <div class="project-card">
+            <div class="project-card" data-key="design">
                 <div class="project-image">
                     🎨
                 </div>
@@ -481,7 +488,7 @@
             </div>
 
             <!-- Project 6 -->
-            <div class="project-card">
+            <div class="project-card" data-key="analytics">
                 <div class="project-image">
                     📊
                 </div>
@@ -523,56 +530,61 @@
         const closeBtn = document.querySelector('.close-btn');
         const projectCards = document.querySelectorAll('.project-card');
 
+        const translations = {
+            pageTitle: { en: 'Projects - My Portfolio', fi: 'Projektit - Sampon Portfolio' },
+            backHome: { en: '← Back to Home', fi: '← Takaisin kotisivulle' },
+            featuredProjectsTitle: { en: 'Featured Projects', fi: 'Projektit' },
+            featuredProjectsSubtitle: { en: 'Explore my latest work and projects', fi: 'Tutustu viimeisimpiin töihini ja projekteihini' },
+            viewDetails: { en: 'View Details', fi: 'Näytä tiedot' },
+            github: { en: 'GitHub', fi: 'GitHub' }
+        };
+
         const projectData = {
             robo: {
-                title: 'Robo Project',
-                desc: 'An innovative robotics project showcasing advanced automation and control systems. This project demonstrates practical application of robotics principles in real-world scenarios with cutting-edge technology.',
+                title: { en: 'Robo Project', fi: 'Robo projekti' },
+                desc: { en: 'An innovative robotics project showcasing advanced automation and control systems. This project demonstrates practical application of robotics principles in real-world scenarios with cutting-edge technology.', fi: 'Innovatiivinen robotiikkaprojekti, joka esittelee edistynyttä automaatiota ja ohjausjärjestelmiä. Projekti havainnollistaa robotiikan periaatteiden käytännön soveltamista reaalimaailman tilanteissa.' },
                 tags: ['Robotics', 'Python', 'Hardware']
             },
-            mobile: {
-                title: 'Mobile App',
-                desc: 'A responsive mobile application for task management with real-time synchronization. Built with modern frameworks for optimal performance and user experience across all devices.',
-                tags: ['Vue.js', 'Firebase', 'PWA']
-            },
-            api: {
-                title: 'API Service',
-                desc: 'RESTful API for data management with comprehensive documentation and authentication. Scalable backend solution with robust error handling and monitoring capabilities.',
-                tags: ['Python', 'Flask', 'PostgreSQL']
+            car: {
+                title: { en: 'Car Restoration', fi: 'Auton restaurointi' },
+                desc: { en: 'A classic Saab 900 restoration project showcasing attention to detail and preservation of original features.', fi: 'Perinteinen Saab 900 -restaurointiprojekti, joka korostaa huolellisuutta ja alkuperäisten ominaisuuksien säilyttämistä.' },
+                tags: ['Restoration', 'Welding', 'Painting']
             },
             web: {
-                title: 'Web Platform',
-                desc: 'A full-stack web platform for collaborative project management. Features real-time updates, user authentication, and comprehensive analytics dashboard.',
+                title: { en: 'Web Portfolio', fi: 'Verkkosivusto' },
+                desc: { en: 'My personal portfolio website showcasing projects, skills, and experience in web development.', fi: 'Henkilökohtainen portfoliosivusto, joka esittelee projekteja, taitoja ja kokemusta web-kehityksessä.' },
                 tags: ['React', 'Node.js', 'MongoDB']
             },
             design: {
-                title: 'Design System',
-                desc: 'A comprehensive design system and component library. Includes documentation, accessibility guidelines, and interactive component showcase.',
+                title: { en: 'Design System', fi: 'Suunnittelujärjestelmä' },
+                desc: { en: 'A comprehensive design system and component library. Includes documentation, accessibility guidelines, and interactive component showcase.', fi: 'Laaja suunnittelujärjestelmä ja komponenttikirjasto, sisältäen dokumentaation, saavutettavuusohjeet ja interaktiivisen komponenttinäytön.' },
                 tags: ['React', 'Storybook', 'CSS']
             },
             analytics: {
-                title: 'Analytics Dashboard',
-                desc: 'Real-time analytics dashboard with data visualization. Displays key metrics and insights with interactive charts and customizable reports.',
+                title: { en: 'Analytics Dashboard', fi: 'Analytiikkapaneeli' },
+                desc: { en: 'Real-time analytics dashboard with data visualization. Displays key metrics and insights with interactive charts and customizable reports.', fi: 'Reaaliaikainen analytiikkapaneeli, joka näyttää avainmittareita ja oivalluksia interaktiivisten kaavioiden ja muokattavien raporttien avulla.' },
                 tags: ['React', 'D3.js', 'GraphQL']
             }
         };
 
-        projectCards.forEach((card, index) => {
+        projectCards.forEach((card) => {
             card.addEventListener('click', () => {
-                const keys = Object.keys(projectData);
-                const data = projectData[keys[index]];
-                
-                document.getElementById('modalTitle').textContent = data.title;
-                document.getElementById('modalDesc').textContent = data.desc;
-                
+                const key = card.dataset.key;
+                const data = projectData[key];
+                const lang = localStorage.getItem('lang') || (navigator.language && navigator.language.startsWith('fi') ? 'fi' : 'en');
+
+                document.getElementById('modalTitle').textContent = data.title[lang];
+                document.getElementById('modalDesc').textContent = data.desc[lang];
+
                 const tagsDiv = document.getElementById('modalTags');
                 tagsDiv.innerHTML = data.tags.map(tag => `<span class="tech-tag">${tag}</span>`).join('');
-                
+
                 const linksDiv = document.getElementById('modalLinks');
                 linksDiv.innerHTML = `
-                    <a href="#" class="project-btn">View Details</a>
-                    <a href="#" class="project-btn secondary">GitHub</a>
+                    <a href="#" class="project-btn">${translations.viewDetails[lang]}</a>
+                    <a href="#" class="project-btn secondary">${translations.github[lang]}</a>
                 `;
-                
+
                 modal.classList.add('active');
             });
         });
@@ -599,6 +611,54 @@
                 }
             });
         });
+
+        // Language toggle: apply translations and remember choice
+        (function(){
+            const langBtn = document.getElementById('lang-toggle');
+            if (!langBtn) return;
+            const stored = localStorage.getItem('lang');
+            const prefersFinnish = window.navigator && window.navigator.language && window.navigator.language.startsWith('fi');
+            const defaultLang = stored || (prefersFinnish ? 'fi' : 'en');
+
+            const applyLanguage = (lang) => {
+                // Page-level strings
+                if (typeof translations !== 'undefined') {
+                    document.title = translations.pageTitle[lang] || document.title;
+                    const back = document.querySelector('.nav-actions a[href="index.html"]');
+                    if (back) back.textContent = translations.backHome[lang];
+                    const h1 = document.querySelector('.page-header h1');
+                    if (h1) h1.textContent = translations.featuredProjectsTitle[lang];
+                    const p = document.querySelector('.page-header p');
+                    if (p) p.textContent = translations.featuredProjectsSubtitle[lang];
+                }
+
+                // Projects
+                document.querySelectorAll('.project-card').forEach(card => {
+                    const key = card.dataset.key;
+                    const data = projectData[key];
+                    if (!data) return;
+                    const titleEl = card.querySelector('h3');
+                    const descEl = card.querySelector('p');
+                    if (titleEl) titleEl.textContent = data.title[lang];
+                    if (descEl) descEl.textContent = data.desc[lang];
+                    const viewBtn = card.querySelector('a.project-btn:not(.secondary)');
+                    if (viewBtn) viewBtn.textContent = translations.viewDetails[lang];
+                    const gitBtn = card.querySelector('a.project-btn.secondary');
+                    if (gitBtn) gitBtn.textContent = translations.github[lang];
+                });
+
+                langBtn.textContent = lang.toUpperCase();
+                localStorage.setItem('lang', lang);
+            };
+
+            langBtn.addEventListener('click', () => {
+                const current = localStorage.getItem('lang') || defaultLang;
+                const next = current === 'fi' ? 'en' : 'fi';
+                applyLanguage(next);
+            });
+
+            applyLanguage(defaultLang);
+        })();
 
         // Theme toggle: remembers choice in localStorage
         (function(){
